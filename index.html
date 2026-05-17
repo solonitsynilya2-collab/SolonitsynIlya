@@ -282,6 +282,8 @@
     .sport-card::before { content:attr(data-e);position:absolute;right:-6px;bottom:-6px;font-size:60px;opacity:.07;transition:opacity .3s,transform .3s;pointer-events:none; }
     .sport-card:hover { border-color:rgba(232,98,42,.35);background:rgba(232,98,42,.04);transform:translateY(-4px); }
     .sport-card:hover::before { opacity:.15;transform:scale(1.1); }
+    .sport-bg-icon { position:absolute;right:-8px;bottom:-8px;width:80px;height:80px;opacity:.07;pointer-events:none;transition:opacity .3s,transform .3s; }
+    .sport-card:hover .sport-bg-icon { opacity:.16;transform:scale(1.1); }
     .sport-emoji { font-size:32px;margin-bottom:18px;height:44px;display:flex;align-items:center; }
     .sport-name { font-size:14px;font-weight:800;text-transform:uppercase;letter-spacing:-.01em;margin-bottom:8px; }
     .sport-note { font-size:11px;color:var(--dim);line-height:1.6; }
@@ -889,7 +891,18 @@
   </div>
 
   <div class="sports-grid r">
-    <div class="sport-card" data-e="🎾">
+    <div class="sport-card" data-e="">
+      <svg class="sport-bg-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="16" cy="13" rx="9" ry="11" fill="white"/>
+        <line x1="13" y1="3" x2="13" y2="23" stroke="#E8622A" stroke-width="1"/>
+        <line x1="16" y1="2.2" x2="16" y2="23.8" stroke="#E8622A" stroke-width="1"/>
+        <line x1="19" y1="3" x2="19" y2="23" stroke="#E8622A" stroke-width="1"/>
+        <line x1="7.5" y1="10" x2="24.5" y2="10" stroke="#E8622A" stroke-width="1"/>
+        <line x1="7" y1="13" x2="25" y2="13" stroke="#E8622A" stroke-width="1"/>
+        <line x1="7.5" y1="16" x2="24.5" y2="16" stroke="#E8622A" stroke-width="1"/>
+        <rect x="14.5" y="23" width="3" height="11" rx="1.5" fill="white"/>
+        <circle cx="28" cy="28" r="4" fill="#E8622A"/>
+      </svg>
       <div class="sport-emoji">
         <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
           <!-- Squash racket: oval head + strings + handle -->
@@ -917,7 +930,15 @@
     </div>
     <div class="sport-card" data-e="⛷️"><div class="sport-emoji">⛷️</div><div class="sport-name">Горные лыжи</div><div class="sport-note">Адреналин и полный контроль скорости</div></div>
     <div class="sport-card" data-e="🏂"><div class="sport-emoji">🏂</div><div class="sport-name">Сноуборд</div><div class="sport-note">Баланс между риском и точностью</div></div>
-    <div class="sport-card" data-e="🎾">
+    <div class="sport-card" data-e="">
+      <svg class="sport-bg-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="18" cy="14" rx="10" ry="11" fill="white" opacity=".9"/>
+        <ellipse cx="18" cy="14" rx="7" ry="8" fill="#E8622A" opacity=".3"/>
+        <rect x="16" y="24" width="4" height="10" rx="2" fill="white" opacity=".9"/>
+        <line x1="13" y1="10" x2="23" y2="10" stroke="#E8622A" stroke-width="1.5" opacity=".6"/>
+        <line x1="12" y1="14" x2="24" y2="14" stroke="#E8622A" stroke-width="1.5" opacity=".6"/>
+        <line x1="13" y1="18" x2="23" y2="18" stroke="#E8622A" stroke-width="1.5" opacity=".6"/>
+      </svg>
       <div class="sport-emoji">
         <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
           <!-- Padel paddle: solid oval head, no strings -->
@@ -934,7 +955,17 @@
     </div>
     <div class="sport-card" data-e="🎾"><div class="sport-emoji">🎾</div><div class="sport-name">Теннис</div><div class="sport-note">Дисциплина с первого мяча</div></div>
     <div class="sport-card" data-e="🏄"><div class="sport-emoji">🏄</div><div class="sport-name">Сёрфинг</div><div class="sport-note">Читать волну = читать рынок</div></div>
-    <div class="sport-card" data-e="🪁">
+    <div class="sport-card" data-e="">
+      <svg class="sport-bg-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8 10 Q18 1 28 10 Q23 18 18 20 Q13 18 8 10Z" fill="white"/>
+        <path d="M8 10 Q18 1 28 10 Q23 14 18 15 Q13 14 8 10Z" fill="#E8622A"/>
+        <line x1="18" y1="1.5" x2="18" y2="20" stroke="#E8622A" stroke-width="1"/>
+        <path d="M13 18 Q12 26 14 30" stroke="white" stroke-width="1.2" stroke-linecap="round"/>
+        <path d="M23 18 Q24 26 22 30" stroke="white" stroke-width="1.2" stroke-linecap="round"/>
+        <line x1="11" y1="30" x2="25" y2="30" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="18" cy="33" r="2" fill="white"/>
+        <path d="M14 35 Q18 34 22 35" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
       <div class="sport-emoji">
         <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
           <!-- Kite canopy: arc shape -->
