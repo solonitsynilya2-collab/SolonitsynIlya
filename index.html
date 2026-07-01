@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Илья Солоницын</title>
+  <title>Илья Солоницын — BDR & Project Manager</title>
+  <meta name="description" content="Илья Солоницын — BDR (Атлант Медиа, Tavrida Surf Park, Робот Володя). Воронка продаж на 300+ клиентов, сделка на 1 млн ₽ за 2,5 недели. Москва." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -109,14 +110,25 @@
     /* Stage */
     .hero-stage {
       position:relative;margin:0 auto;margin-top:40px;
-      width:420px;max-width:88vw;z-index:2;
+      width:440px;max-width:88vw;z-index:2;
     }
     .hero-img {
-      width:100%;height:560px;object-fit:cover;object-position:top center;
-      display:block;border-radius:12px;
-      mask-image:linear-gradient(to bottom,black 55%,transparent 100%);
-      -webkit-mask-image:linear-gradient(to bottom,black 55%,transparent 100%);
+      width:100%;height:580px;object-fit:cover;object-position:top center;
+      display:block;border-radius:14px;
+      mask-image:linear-gradient(to bottom,black 62%,transparent 100%);
+      -webkit-mask-image:linear-gradient(to bottom,black 62%,transparent 100%);
     }
+    .hero-tag {
+      position:absolute;left:50%;bottom:-6px;transform:translateX(-50%);
+      background:rgba(6,5,4,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+      border:1px solid rgba(232,98,42,.4);border-radius:18px;padding:12px 22px;
+      font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+      display:flex;align-items:center;white-space:nowrap;z-index:3;
+      text-decoration:none;color:var(--white);
+      transition:border-color .25s,transform .25s;
+    }
+    .hero-tag:hover { border-color:var(--orange);transform:translateX(-50%) scale(1.03); }
+    .hero-tag-sub { display:block;font-size:8.5px;font-weight:700;letter-spacing:.08em;color:var(--orange);margin-top:4px;text-transform:none; }
 
     /* Descriptors */
     .hero-side {
@@ -215,7 +227,8 @@
 
     .proj-ico { width:50px;height:50px;border-radius:12px;background:rgba(232,98,42,.12);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:22px; }
     .proj-num { font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--orange);margin-bottom:10px; }
-    .proj-name { font-size:17px;font-weight:800;line-height:1.2;margin-bottom:8px; }
+    .proj-name { font-size:17px;font-weight:800;line-height:1.2;margin-bottom:8px;min-height:2.4em; }
+    .proj-card:not(.proj-personal) .proj-badge { margin-bottom:16px; }
     .proj-badge { display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;padding:3px 10px;border-radius:100px;border:1px solid var(--line);color:var(--dim);margin-bottom:14px; }
     .proj-desc { font-size:12.5px;line-height:1.75;color:var(--dim); }
 
@@ -339,6 +352,120 @@
     .proj-card.proj-personal .proj-desc { font-size:14px; }
     .proj-badge-personal { border-color:var(--orange)!important;color:var(--orange)!important; }
 
+    /* ─── NOW (текущие роли) ─── */
+    #now { padding:100px 64px;border-top:1px solid var(--line);background:rgba(232,98,42,.03); }
+    .live-dot {
+      display:inline-block;width:7px;height:7px;background:#4ade80;border-radius:50%;
+      margin-right:9px;vertical-align:1px;
+      box-shadow:0 0 0 0 rgba(74,222,128,.55);animation:live 1.8s ease-out infinite;
+    }
+    @keyframes live { 0%{box-shadow:0 0 0 0 rgba(74,222,128,.55)} 100%{box-shadow:0 0 0 10px rgba(74,222,128,0)} }
+    .now-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:64px; }
+    .now-card {
+      background:var(--glass);border:1px solid var(--line);
+      backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+      border-radius:16px;padding:32px 28px;
+      position:relative;overflow:hidden;cursor:default;
+      transition:border-color .3s,transform .3s;
+    }
+    .now-card::after { content:'';position:absolute;inset:0;background:radial-gradient(ellipse at top left,rgba(232,98,42,.07),transparent 60%);opacity:0;transition:opacity .3s;pointer-events:none; }
+    .now-card:hover { border-color:rgba(232,98,42,.4);transform:translateY(-4px); }
+    .now-card:hover::after { opacity:1; }
+    .now-head { display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:22px; }
+    .now-ico { width:50px;height:50px;border-radius:12px;background:rgba(232,98,42,.12);display:flex;align-items:center;justify-content:center;flex-shrink:0; }
+    .now-live { font-size:9.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#4ade80;display:flex;align-items:center;padding-top:6px; }
+    .now-role { font-size:17px;font-weight:800;line-height:1.25;margin-bottom:6px; }
+    .now-co { font-size:12px;font-weight:600;color:var(--orange);margin-bottom:16px;letter-spacing:.04em; }
+    .now-card .exp-tags { margin-top:20px;margin-bottom:0;flex-wrap:wrap; }
+    .now-featured {
+      grid-column:1 / -1;
+      background:rgba(232,98,42,.09);border-color:rgba(232,98,42,.35);
+    }
+    .now-featured .now-head { justify-content:flex-start;align-items:center;gap:18px; }
+    .now-featured .now-live { padding-top:0; }
+
+    /* ─── OFFER (чем могу быть полезен) ─── */
+    #offer { padding:100px 64px;border-top:1px solid var(--line); }
+    .offer-grid { display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:64px; }
+    .offer-card {
+      background:rgba(232,98,42,.07);border:1px solid rgba(232,98,42,.3);
+      backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+      border-radius:16px;padding:36px 32px;cursor:default;
+      position:relative;overflow:hidden;
+      display:flex;flex-direction:column;align-items:flex-start;
+      transition:border-color .3s,transform .3s;
+    }
+    .offer-card:hover { border-color:rgba(232,98,42,.55);transform:translateY(-4px); }
+    .offer-name { font-size:17px;font-weight:800;line-height:1.3;margin:22px 0 10px; }
+    .offer-desc { font-size:13px;color:var(--dim);line-height:1.75; }
+    .offer-fee { display:inline-block;margin-top:auto;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:6px 16px;border-radius:100px;border:1px solid var(--orange);color:var(--orange); }
+    .offer-desc { margin-bottom:20px; }
+    .offer-note { margin-top:22px;font-size:11.5px;color:var(--dimmer);line-height:1.7;display:flex;align-items:center;gap:10px; }
+    @media(max-width:900px){ #offer{padding:64px 24px;} .offer-grid{grid-template-columns:1fr;} }
+    @media(max-width:600px){ #offer{padding:52px 18px;} .offer-card{padding:26px 22px;} }
+
+    /* ─── MAP (roadmap сайта) ─── */
+    #map { padding:100px 64px;border-top:1px solid var(--line);background:rgba(232,98,42,.02); }
+    .map-list {
+      margin-top:64px;
+      display:grid;grid-template-columns:1fr 1fr;gap:0 56px;
+      border-top:1px solid var(--line);
+    }
+    .map-item {
+      display:flex;align-items:center;gap:20px;padding:18px 8px;
+      border-bottom:1px solid var(--line);
+      text-decoration:none;color:var(--white);
+      transition:background .25s,padding-left .25s;
+    }
+    .map-item:hover { background:rgba(232,98,42,.05);padding-left:16px; }
+    .map-num { font-size:10px;font-weight:800;color:var(--orange);letter-spacing:.1em;width:22px;flex-shrink:0; }
+    .map-name { font-size:14.5px;font-weight:800; }
+    .map-desc { font-size:11.5px;color:var(--dim);margin-top:3px;line-height:1.5; }
+    .map-arrow { margin-left:auto;color:var(--orange);opacity:0;transition:opacity .25s;flex-shrink:0; }
+    .map-item:hover .map-arrow { opacity:1; }
+    @media(max-width:900px){ #map{padding:64px 24px;} .map-list{grid-template-columns:1fr;gap:0;} }
+    @media(max-width:600px){ #map{padding:52px 18px;} .map-item{gap:14px;} }
+
+    /* ─── DOCS ─── */
+    #docs { padding:100px 64px;border-top:1px solid var(--line);background:rgba(232,98,42,.02); }
+    .docs-grid { display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:64px; }
+    .doc-card {
+      display:flex;align-items:center;gap:22px;
+      background:var(--glass);border:1px solid var(--line);
+      backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+      border-radius:16px;padding:30px 32px;
+      text-decoration:none;color:var(--white);
+      position:relative;overflow:hidden;
+      transition:border-color .3s,transform .3s;
+    }
+    .doc-card::after { content:'';position:absolute;inset:0;background:radial-gradient(ellipse at top left,rgba(232,98,42,.07),transparent 60%);opacity:0;transition:opacity .3s;pointer-events:none; }
+    .doc-card:hover { border-color:rgba(232,98,42,.45);transform:translateY(-4px); }
+    .doc-card:hover::after { opacity:1; }
+    .doc-ico { width:56px;height:56px;border-radius:14px;background:rgba(232,98,42,.12);display:flex;align-items:center;justify-content:center;flex-shrink:0; }
+    .doc-name { font-size:16px;font-weight:800;line-height:1.3;margin-bottom:5px; }
+    .doc-sub { font-size:11.5px;color:var(--dim);line-height:1.5; }
+    .doc-arrow { margin-left:auto;flex-shrink:0;width:38px;height:38px;border-radius:50%;border:1px solid rgba(232,98,42,.4);display:flex;align-items:center;justify-content:center;transition:background .25s; }
+    .doc-card:hover .doc-arrow { background:var(--og-dim); }
+    @media(max-width:900px){ #docs{padding:64px 24px;} .docs-grid{grid-template-columns:1fr;} }
+    @media(max-width:600px){ #docs{padding:52px 18px;} .doc-card{padding:24px 20px;gap:16px;} .doc-arrow{display:none;} }
+
+    /* Иконки активностей — в боксах, как у проектов */
+    .act-icon { width:54px;height:54px;border-radius:14px;background:rgba(232,98,42,.12);display:flex;align-items:center;justify-content:center;margin-bottom:20px;font-size:initial; }
+
+    /* Живой фон hero */
+    .hero-glow  { animation:drift 14s ease-in-out infinite; }
+    .hero-glow2 { animation:drift 18s ease-in-out infinite reverse; }
+    @keyframes drift { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(-28px,22px) scale(1.06)} }
+
+    @media(max-width:900px){
+      #now { padding:64px 24px; }
+      .now-grid { grid-template-columns:1fr; }
+    }
+    @media(max-width:600px){
+      #now { padding:52px 18px; }
+      .now-card { padding:26px 22px; }
+    }
+
     /* ─── REVEAL ─── */
     .r { opacity:0;transform:translateY(30px); }
 
@@ -349,7 +476,8 @@
       .nav-cta{padding:9px 18px;font-size:11px;}
 
       #hero{padding:110px 24px 56px;}
-      .hero-stage{width:300px;}
+      .hero-stage{width:340px;}
+      .hero-img{height:480px;}
 
       section,#clients,#experience,#projects,#skills,#sports,#activities,#contact{padding:64px 24px;}
 
@@ -382,7 +510,9 @@
 
       #hero{padding:100px 18px 48px;}
       .hero-eyebrow{font-size:10px;gap:8px;}
-      .hero-stage{width:88vw;max-width:300px;}
+      .hero-stage{width:88vw;max-width:320px;}
+      .hero-img{height:440px;border-radius:12px;}
+      .hero-tag{padding:9px 16px;font-size:9px;bottom:-4px;}
       .hero-side{display:none;}
 
       section,#clients,#experience,#projects,#skills,#sports,#activities,#contact{padding:52px 18px;}
@@ -437,10 +567,12 @@
     <span class="nav-logo-name">Солоницын</span>
   </a>
   <ul class="nav-links">
+    <li><a href="#now">Сейчас</a></li>
     <li><a href="#clients">Клиенты</a></li>
     <li><a href="#experience">Опыт</a></li>
     <li><a href="#projects">Проекты</a></li>
     <li><a href="#skills">Навыки</a></li>
+    <li><a href="#docs">Документы</a></li>
   </ul>
   <div class="nav-right">
     <!-- LinkedIn -->
@@ -465,7 +597,7 @@
 
   <div class="hero-eyebrow">
     <div class="hero-dot"></div>
-    Junior Project Manager · Москва
+    BDR × Junior Project Manager · Москва
     <div class="hero-dot"></div>
   </div>
 
@@ -475,21 +607,331 @@
   </h1>
 
   <div style="position:relative;display:flex;justify-content:center;">
-    <div class="hero-side">
-      <span class="on">Стратег</span>
-      <span>Лидер</span>
-      <span>Визионер</span>
-    </div>
-
     <div class="hero-stage">
-      <img class="hero-img" src="assets/photo.jpg" alt="Илья Солоницын" />
-
+      <img class="hero-img" src="assets/photo2.jpg?v=2" alt="Илья Солоницын и робот Володя" />
+      <a class="hero-tag" href="#offer">
+        <span class="live-dot"></span>
+        <span>Открыт к сотрудничеству<span class="hero-tag-sub">смотри раздел «Чем могу быть полезен» →</span></span>
+      </a>
     </div>
   </div>
 
   <div class="hero-foot r">
     <div class="hero-scroll-line"></div>
     <span class="hero-scroll-txt">Scroll</span>
+  </div>
+</section>
+
+<!-- MAP -->
+<section id="map">
+  <div class="r">
+    <div class="section-tag">Навигация</div>
+    <h2 class="section-title">Весь сайт<br/><em>за 30 секунд</em></h2>
+  </div>
+  <div class="map-list r">
+      <a class="map-item" href="#now">
+        <span class="map-num">01</span>
+        <span><span class="map-name">Чем занимаюсь сейчас</span><div class="map-desc">4 активные роли: Атлант Медиа, Tavrida Surf Park, «Робот Володя», АРЦП</div></span>
+        <svg class="map-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a class="map-item" href="#offer">
+        <span class="map-num">02</span>
+        <span><span class="map-name">Чем могу быть полезен</span><div class="map-desc">Воронка продаж под ключ и поиск контактов — за процент от сделки</div></span>
+        <svg class="map-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a class="map-item" href="#docs">
+        <span class="map-num">03</span>
+        <span><span class="map-name">Резюме и рекомендации</span><div class="map-desc">CV одним файлом и благодарственное письмо Alfa-Bank</div></span>
+        <svg class="map-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a class="map-item" href="#experience">
+        <span class="map-num">04</span>
+        <span><span class="map-name">Карьерный путь</span><div class="map-desc">От бизнес-аналитика до Junior PM в CK Consulting</div></span>
+        <svg class="map-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a class="map-item" href="#projects">
+        <span class="map-num">05</span>
+        <span><span class="map-name">Проекты</span><div class="map-desc">ЦФА, дата-центры, металлургия, проектное финансирование</div></span>
+        <svg class="map-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a class="map-item" href="#skills">
+        <span class="map-num">06</span>
+        <span><span class="map-name">Навыки и инструменты</span><div class="map-desc">Продажи и BD, аналитика, AI-инструменты, CRM</div></span>
+        <svg class="map-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a class="map-item" href="#sports">
+        <span class="map-num">07</span>
+        <span><span class="map-name">Спорт и увлечения</span><div class="map-desc">Сквош, теннис, сёрфинг, кайтсёрфинг, нетворкинг</div></span>
+        <svg class="map-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a class="map-item" href="#contact">
+        <span class="map-num">08</span>
+        <span><span class="map-name">Связаться</span><div class="map-desc">Telegram · LinkedIn · TenChat</div></span>
+        <svg class="map-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+  </div>
+</section>
+
+<!-- NOW -->
+<section id="now">
+  <div class="r">
+    <div class="section-tag"><span class="live-dot"></span>Сейчас · 4 роли</div>
+    <h2 class="section-title">Чем занимаюсь<br/><em>прямо сейчас</em></h2>
+  </div>
+  <div class="now-grid">
+
+    <!-- Атлант Медиа — featured -->
+    <div class="now-card now-featured r">
+      <div>
+        <div class="now-head">
+          <div class="now-ico">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E8622A" stroke-width="1.8" stroke-linecap="round">
+              <circle cx="12" cy="10" r="2.2" fill="#E8622A" stroke="none"/>
+              <path d="M8.5 13.5a5 5 0 010-7M15.5 6.5a5 5 0 010 7"/>
+              <path d="M6 16A9 9 0 016 4M18 4a9 9 0 010 12" opacity=".55"/>
+              <path d="M12 12.5L9.5 21M12 12.5L14.5 21"/>
+            </svg>
+          </div>
+          <span class="now-live"><span class="live-dot"></span>С апреля 2026</span>
+        </div>
+        <div class="now-role">Business Development Representative</div>
+        <div class="now-co">Медиахолдинг «Атлант Медиа»</div>
+        <ul class="exp-ul">
+          <li>Выстроил личную воронку продаж на <span class="hl">300+ клиентов</span>: поиск контактов ЛПР → аутрич → переговоры → сделка</li>
+          <li>Привлёк сделку на <span class="hl">1 000 000 ₽ за 2,5 недели</span> — от первого касания до подписания</li>
+          <li>У клиента свой <span class="hl">акселератор по маркетплейсам</span>: задача — развитие его личного бренда и привлечение целевых лидов, селлеров с выручкой от 50 млн ₽/год</li>
+          <li>Ещё несколько сделок — <span class="hl">в переговорах и на стадии подписания</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Tavrida Surf Park -->
+    <div class="now-card r">
+      <div class="now-head">
+        <div class="now-ico">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E8622A" stroke-width="1.8" stroke-linecap="round">
+            <path d="M17 2c-4.5 1.5-8 7-9 12" opacity=".9"/>
+            <path d="M17 2c.5 5-1 9.5-4.5 12.5" opacity=".55"/>
+            <path d="M2 17.5c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 5 2"/>
+            <path d="M2 21.5c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 5 2" opacity=".45"/>
+          </svg>
+        </div>
+        <span class="now-live"><span class="live-dot"></span>С июня 2026</span>
+      </div>
+      <div class="now-role">BDR</div>
+      <div class="now-co">Tavrida Surf Park</div>
+      <ul class="exp-ul">
+        <li>Поиск клиентов для сёрф-парка</li>
+        <li>Поиск потенциальных инвесторов под <span class="hl">проектное финансирование</span></li>
+      </ul>
+    </div>
+
+    <!-- Робот Володя -->
+    <div class="now-card r">
+      <div class="now-head">
+        <div class="now-ico">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E8622A" stroke-width="1.8" stroke-linecap="round">
+            <rect x="5" y="8" width="14" height="10" rx="3"/>
+            <circle cx="9.5" cy="13" r="1.2" fill="#E8622A" stroke="none"/>
+            <circle cx="14.5" cy="13" r="1.2" fill="#E8622A" stroke="none"/>
+            <path d="M12 8V5.5"/><circle cx="12" cy="4" r="1.3" fill="#E8622A" stroke="none"/>
+            <path d="M5 12.5H3M21 12.5h-2" opacity=".55"/>
+          </svg>
+        </div>
+        <span class="now-live"><span class="live-dot"></span>С июня 2026</span>
+      </div>
+      <div class="now-role">BDR</div>
+      <div class="now-co">@petrtyurin_robotics · «Робот Володя»</div>
+      <ul class="exp-ul">
+        <li>Поиск клиентов, подготовка <span class="hl">коммерческих предложений</span></li>
+        <li>Переговоры и заключение сделок</li>
+      </ul>
+    </div>
+
+    <!-- АРЦП -->
+    <div class="now-card r">
+      <div class="now-head">
+        <div class="now-ico">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E8622A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3l8 3v5c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-3z"/>
+            <path d="M9 12l2 2 4-4"/>
+          </svg>
+        </div>
+        <span class="now-live"><span class="live-dot"></span>С мая 2026</span>
+      </div>
+      <div class="now-role">Стажёр</div>
+      <div class="now-co">АРЦП — Ассоциация рынка экспертов по цифровым правам</div>
+      <ul class="exp-ul">
+        <li>Транскрибирую записи встреч, веду <span class="hl">заметки и выводы</span> по итогам</li>
+        <li>Помогаю с организацией встреч и вопросами в <span class="hl">рабочей группе</span> ассоциации</li>
+        <li>Слушаю экспертов по финансам и цифровым правам — <span class="hl">перенимаю их экспертизу</span></li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- OFFER -->
+<section id="offer">
+  <div class="r">
+    <div class="section-tag">Сотрудничество</div>
+    <h2 class="section-title">Чем могу быть<br/><em>полезен</em></h2>
+  </div>
+  <div class="offer-grid">
+
+    <div class="offer-card r">
+      <div class="now-ico">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E8622A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 4h18l-7 8v6l-4 2v-8L3 4z"/>
+          <circle cx="19" cy="19" r="2.5" opacity=".8"/>
+          <path d="M17.2 17.2l-1.7-1.7" opacity=".6"/>
+        </svg>
+      </div>
+      <div class="offer-name">Выстрою воронку продаж: от поиска ЛПР до сделки</div>
+      <div class="offer-desc">Полный цикл под вашу задачу: нахожу нужных людей, выхожу на них, веду переговоры и довожу до подписания. Так я закрыл сделку на 1 млн ₽ за 2,5 недели.</div>
+      <span class="offer-fee">Процент от сделки + фикс</span>
+    </div>
+
+    <div class="offer-card r">
+      <div class="now-ico">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E8622A" stroke-width="1.8" stroke-linecap="round">
+          <circle cx="10" cy="8" r="3.2"/>
+          <path d="M4.5 19c.7-3 2.9-4.6 5.5-4.6s4.8 1.6 5.5 4.6" opacity=".8"/>
+          <circle cx="18" cy="10" r="2.2" opacity=".7"/>
+          <path d="M16.5 14.8c1.9.2 3.3 1.3 3.9 3.2" opacity=".55"/>
+        </svg>
+      </div>
+      <div class="offer-name">Найду выход на нужных людей</div>
+      <div class="offer-desc">Контакты сотрудников корпораций, предпринимателей и медийных персон под вашу задачу — только по открытым источникам и с соблюдением закона о персональных данных (152-ФЗ).</div>
+      <span class="offer-fee">Процент + фикс</span>
+    </div>
+
+  </div>
+  <div class="offer-note r">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#E8622A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M12 3l8 3v5c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-3z"/><path d="M9 12l2 2 4-4"/></svg>
+    Формат оплаты: процент от сделки + фиксированная часть, сумма варьируется под задачу. Работаю в правовом поле РФ: открытые источники, без обработки персональных данных в обход 152-ФЗ.
+  </div>
+</section>
+
+<!-- DOCS -->
+<section id="docs">
+  <div class="r">
+    <div class="section-tag">Документы</div>
+    <h2 class="section-title">Резюме и<br/><em>рекомендации</em></h2>
+  </div>
+  <div class="docs-grid">
+
+    <a class="doc-card r" href="assets/CV_Solonitsyn_Ilya.pdf" target="_blank" rel="noopener">
+      <div class="doc-ico">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#E8622A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 2h8l4 4v16H6V2z"/>
+          <path d="M14 2v4h4" opacity=".7"/>
+          <circle cx="10" cy="10.5" r="1.8"/>
+          <path d="M7 16c.5-1.8 1.6-2.7 3-2.7s2.5.9 3 2.7" opacity=".8"/>
+          <path d="M15 11h2.5M14 14h3.5M7 18.5h10" opacity=".55"/>
+        </svg>
+      </div>
+      <div>
+        <div class="doc-name">Резюме · CV</div>
+        <div class="doc-sub">Полный опыт, навыки и образование одним файлом · PDF</div>
+      </div>
+      <div class="doc-arrow">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#E8622A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v13M6 11l6 6 6-6"/><path d="M5 21h14"/></svg>
+      </div>
+    </a>
+
+    <a class="doc-card r" href="assets/Blagodarstvennoe_pismo_Alfa-Bank.pdf" target="_blank" rel="noopener">
+      <div class="doc-ico">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#E8622A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 3h14v18l-3.5-2.5L12 21l-3.5-2.5L5 21V3z"/>
+          <circle cx="12" cy="9" r="3" opacity=".8"/>
+          <path d="M10.8 9l.9.9 1.8-1.8" opacity=".9"/>
+          <path d="M8.5 14.5h7" opacity=".55"/>
+        </svg>
+      </div>
+      <div>
+        <div class="doc-name">Благодарственное письмо · Alfa-Bank</div>
+        <div class="doc-sub">От руководителя проектов за вклад в стратегическое развитие банка · PDF</div>
+      </div>
+      <div class="doc-arrow">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#E8622A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v13M6 11l6 6 6-6"/><path d="M5 21h14"/></svg>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="r">
+    <div class="section-tag">Опыт работы</div>
+    <h2 class="section-title">Карьерный<br/><em>путь</em></h2>
+  </div>
+
+  <div class="exp-row r">
+    <div>
+      <div class="exp-period">Янв. – Апр. 2026</div>
+      <div class="exp-co">CK Consulting Agency</div>
+      <div class="exp-idx">01</div>
+    </div>
+    <div>
+      <div class="exp-role">Junior Project Manager</div>
+      <div class="exp-tags"><span class="exp-tag">PM</span><span class="exp-tag">Team Lead</span><span class="exp-tag">Strategy</span><span class="exp-tag">ЦФА</span></div>
+      <ul class="exp-ul">
+        <li>Проекты для <span class="hl">Alfa-Bank, Revolut, Neiry, Yandex, VTB</span> - прямой контакт с представителями</li>
+        <li>Руководство командами до <span class="hl">20+ человек</span>: задачи, KPI, дедлайны</li>
+        <li><span class="hl">Alfa-Bank:</span> анализ открытия иностранного филиала → презентация для CEO</li>
+        <li><span class="hl">VTB:</span> зеркало ЦФА в иностранных юрисдикциях для российских инвесторов</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="exp-row r">
+    <div>
+      <div class="exp-period">Нояб.–Дек. 2025</div>
+      <div class="exp-co">CK Consulting Agency</div>
+      <div class="exp-idx">02</div>
+    </div>
+    <div>
+      <div class="exp-role">Senior Analyst</div>
+      <div class="exp-tags"><span class="exp-tag">Crypto</span><span class="exp-tag">ИИ-ЦОД</span><span class="exp-tag">KPI</span></div>
+      <ul class="exp-ul">
+        <li><span class="hl">Консалтинг стартапов</span> в сфере крипто-майнинга и ИИ-ЦОД</li>
+        <li>Мотивация команды, контроль дедлайнов и KPI</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="exp-row r">
+    <div>
+      <div class="exp-period">Сент.–Окт. 2025</div>
+      <div class="exp-co">CK Consulting Agency</div>
+      <div class="exp-idx">03</div>
+    </div>
+    <div>
+      <div class="exp-role">Business Analyst</div>
+      <div class="exp-tags"><span class="exp-tag">Фин. анализ</span><span class="exp-tag">Гипотезы</span><span class="exp-tag">Стратегия</span></div>
+      <ul class="exp-ul">
+        <li>Анализ финансовой отчётности, построение гипотез</li>
+        <li>Стратегии развития, оптимизация процессов</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="exp-row r">
+    <div>
+      <div class="exp-period">Июнь–Авг. 2025</div>
+      <div class="exp-co">Aurora Group</div>
+      <div class="exp-idx">04</div>
+    </div>
+    <div>
+      <div class="exp-role">Visualizer & Admin</div>
+      <div class="exp-tags"><span class="exp-tag">Аналитика</span><span class="exp-tag">Дизайн</span><span class="exp-tag">Интерьер</span></div>
+      <ul class="exp-ul">
+        <li>Анализ отчётности, оптимизация бизнес-процессов</li>
+        <li>Визуализация интерьерных решений</li>
+      </ul>
+    </div>
   </div>
 </section>
 
@@ -634,80 +1076,6 @@
   </div>
 </section>
 
-<!-- EXPERIENCE -->
-<section id="experience">
-  <div class="r">
-    <div class="section-tag">Опыт работы</div>
-    <h2 class="section-title">Карьерный<br/><em>путь</em></h2>
-  </div>
-
-  <div class="exp-row r">
-    <div>
-      <div class="exp-period">Янв. 2026 - н.в.</div>
-      <div class="exp-co">CK Consulting Agency</div>
-      <div class="exp-idx">01</div>
-    </div>
-    <div>
-      <div class="exp-role">Junior Project Manager</div>
-      <div class="exp-tags"><span class="exp-tag">PM</span><span class="exp-tag">Team Lead</span><span class="exp-tag">Strategy</span><span class="exp-tag">ЦФА</span></div>
-      <ul class="exp-ul">
-        <li>Проекты для <span class="hl">Alfa-Bank, Revolut, Neiry, Yandex, VTB</span> - прямой контакт с представителями</li>
-        <li>Руководство командами до <span class="hl">20+ человек</span>: задачи, KPI, дедлайны</li>
-        <li><span class="hl">Alfa-Bank:</span> анализ открытия иностранного филиала → презентация для CEO</li>
-        <li><span class="hl">VTB:</span> зеркало ЦФА в иностранных юрисдикциях для российских инвесторов</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="exp-row r">
-    <div>
-      <div class="exp-period">Нояб.–Дек. 2025</div>
-      <div class="exp-co">CK Consulting Agency</div>
-      <div class="exp-idx">02</div>
-    </div>
-    <div>
-      <div class="exp-role">Senior Analyst</div>
-      <div class="exp-tags"><span class="exp-tag">Crypto</span><span class="exp-tag">ИИ-ЦОД</span><span class="exp-tag">KPI</span></div>
-      <ul class="exp-ul">
-        <li><span class="hl">Консалтинг стартапов</span> в сфере крипто-майнинга и ИИ-ЦОД</li>
-        <li>Мотивация команды, контроль дедлайнов и KPI</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="exp-row r">
-    <div>
-      <div class="exp-period">Сент.–Окт. 2025</div>
-      <div class="exp-co">CK Consulting Agency</div>
-      <div class="exp-idx">03</div>
-    </div>
-    <div>
-      <div class="exp-role">Business Analyst</div>
-      <div class="exp-tags"><span class="exp-tag">Фин. анализ</span><span class="exp-tag">Гипотезы</span><span class="exp-tag">Стратегия</span></div>
-      <ul class="exp-ul">
-        <li>Анализ финансовой отчётности, построение гипотез</li>
-        <li>Стратегии развития, оптимизация процессов</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="exp-row r">
-    <div>
-      <div class="exp-period">Июнь–Авг. 2025</div>
-      <div class="exp-co">Aurora Group</div>
-      <div class="exp-idx">04</div>
-    </div>
-    <div>
-      <div class="exp-role">Visualizer & Admin</div>
-      <div class="exp-tags"><span class="exp-tag">Аналитика</span><span class="exp-tag">Дизайн</span><span class="exp-tag">Интерьер</span></div>
-      <ul class="exp-ul">
-        <li>Анализ отчётности, оптимизация бизнес-процессов</li>
-        <li>Визуализация интерьерных решений</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
 <!-- PROJECTS -->
 <section id="projects">
   <div class="r">
@@ -717,7 +1085,14 @@
   <div class="proj-grid">
 
     <div class="proj-card r">
-      <div class="proj-ico">🏦</div>
+      <div class="proj-ico">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E8622A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9l9-6 9 6H3z"/>
+          <path d="M5 9v8M9.5 9v8M14.5 9v8M19 9v8" opacity=".8"/>
+          <path d="M3 17h18M2 21h20"/>
+          <circle cx="12" cy="6" r="1" fill="#E8622A" stroke="none"/>
+        </svg>
+      </div>
       <div class="proj-num">01</div>
       <div class="proj-name">Анализ иностранного филиала</div>
       <div class="proj-badge">Alfa-Bank</div>
@@ -725,7 +1100,14 @@
     </div>
 
     <div class="proj-card r">
-      <div class="proj-ico">🎯</div>
+      <div class="proj-ico">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E8622A" stroke-width="1.7" stroke-linecap="round">
+          <circle cx="12" cy="12" r="9"/>
+          <circle cx="12" cy="12" r="5.5" opacity=".6"/>
+          <circle cx="12" cy="12" r="2" fill="#E8622A" stroke="none"/>
+          <path d="M12 3V1M12 23v-2M3 12H1M23 12h-2" opacity=".5"/>
+        </svg>
+      </div>
       <div class="proj-num">02</div>
       <div class="proj-name">Стратсессия · ЦФА для иностранцев</div>
       <div class="proj-badge">Alfa-Bank</div>
@@ -733,7 +1115,12 @@
     </div>
 
     <div class="proj-card r">
-      <div class="proj-ico">⛓️</div>
+      <div class="proj-ico">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E8622A" stroke-width="1.7" stroke-linecap="round">
+          <path d="M10 14a4 4 0 005.66 0l2.83-2.83a4 4 0 10-5.66-5.66l-1.4 1.4"/>
+          <path d="M14 10a4 4 0 00-5.66 0l-2.83 2.83a4 4 0 105.66 5.66l1.4-1.4" opacity=".7"/>
+        </svg>
+      </div>
       <div class="proj-num">03</div>
       <div class="proj-name">Зеркало ЦФА за рубежом</div>
       <div class="proj-badge">VTB</div>
@@ -741,7 +1128,16 @@
     </div>
 
     <div class="proj-card r">
-      <div class="proj-ico">⛏️</div>
+      <div class="proj-ico">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E8622A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="18" height="7" rx="1.5"/>
+          <rect x="3" y="14" width="18" height="7" rx="1.5"/>
+          <circle cx="7" cy="6.5" r="1" fill="#E8622A" stroke="none"/>
+          <circle cx="7" cy="17.5" r="1" fill="#E8622A" stroke="none"/>
+          <path d="M11 6.5h6M11 17.5h6" opacity=".55"/>
+          <path d="M12 10v4" opacity=".4"/>
+        </svg>
+      </div>
       <div class="proj-num">04</div>
       <div class="proj-name">Майнинговые и ИИ дата-центры</div>
       <div class="proj-badge">Стартапы</div>
@@ -749,7 +1145,12 @@
     </div>
 
     <div class="proj-card r">
-      <div class="proj-ico">🏗️</div>
+      <div class="proj-ico">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E8622A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2.5c1.2 3 4 4 4 7.5a4 4 0 11-8 0c0-2.6 2.6-4.3 4-7.5z"/>
+          <path d="M4 21.5l1.6-3.5h4L8 21.5H4zM10 21.5l1.6-3.5h4L14 21.5h-4zM16 21.5l1.6-3.5h4L20 21.5h-4z" opacity=".8"/>
+        </svg>
+      </div>
       <div class="proj-num">05</div>
       <div class="proj-name">Металлургия и промышленность</div>
       <div class="proj-badge">CK Consulting</div>
@@ -757,7 +1158,15 @@
     </div>
 
     <div class="proj-card r">
-      <div class="proj-ico">🏭</div>
+      <div class="proj-ico">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E8622A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 21V11l5 3v-3l5 3v-3l6 3v7H3z"/>
+          <path d="M6.5 3v5M4 3h9M13 3v3" opacity=".55"/>
+          <circle cx="7" cy="17.5" r=".9" fill="#E8622A" stroke="none"/>
+          <circle cx="11.5" cy="17.5" r=".9" fill="#E8622A" stroke="none"/>
+          <circle cx="16" cy="17.5" r=".9" fill="#E8622A" stroke="none"/>
+        </svg>
+      </div>
       <div class="proj-num">06</div>
       <div class="proj-name">Проектное финансирование заводов</div>
       <div class="proj-badge">CK Consulting</div>
@@ -765,7 +1174,15 @@
     </div>
 
     <div class="proj-card proj-personal r">
-      <div class="proj-ico">🤖</div>
+      <div class="proj-ico">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E8622A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="4" y="7" width="16" height="12" rx="3"/>
+          <circle cx="9" cy="12" r="1.3" fill="#E8622A" stroke="none"/>
+          <circle cx="15" cy="12" r="1.3" fill="#E8622A" stroke="none"/>
+          <path d="M9.5 15.5c.8.8 4.2.8 5 0" opacity=".8"/>
+          <path d="M12 7V4.5"/><circle cx="12" cy="3.2" r="1.2" fill="#E8622A" stroke="none"/>
+        </svg>
+      </div>
       <div>
         <div class="proj-num">07</div>
         <div class="proj-name">LLM-агенты в бизнесе</div>
@@ -787,6 +1204,15 @@
   <div class="skills-wrap">
     <div class="r">
       <div class="skill-block">
+        <div class="skill-cat">Продажи и Business Development</div>
+        <div class="skill-pills">
+          <span class="pill">🎯 Outbound / лидогенерация</span>
+          <span class="pill">🤝 Переговоры с ЛПР</span>
+          <span class="pill">📄 Коммерческие предложения</span>
+          <span class="pill">💸 Проектное финансирование</span>
+        </div>
+      </div>
+      <div class="skill-block">
         <div class="skill-cat">Управление проектами</div>
         <div class="skill-pills">
           <span class="pill">👥 Team Leadership</span>
@@ -801,7 +1227,7 @@
           <span class="pill">⚡ Power BI</span>
           <span class="pill">🗄️ SQL</span>
           <span class="pill">🔍 Фин. анализ</span>
-          <span class="pill" style="opacity:.45;border-color:rgba(255,255,255,.1);">🗂️ CRM</span>
+          <span class="pill">🗂️ CRM</span>
         </div>
       </div>
       <div class="skill-block">
@@ -928,8 +1354,46 @@
       <div class="sport-name">Сквош</div>
       <div class="sport-note">Реакция и стратегия в одном корте</div>
     </div>
-    <div class="sport-card" data-e="⛷️"><div class="sport-emoji">⛷️</div><div class="sport-name">Горные лыжи</div><div class="sport-note">Адреналин и полный контроль скорости</div></div>
-    <div class="sport-card" data-e="🏂"><div class="sport-emoji">🏂</div><div class="sport-name">Сноуборд</div><div class="sport-note">Баланс между риском и точностью</div></div>
+    <div class="sport-card" data-e="">
+      <svg class="sport-bg-icon" viewBox="0 0 36 36" fill="none">
+        <path d="M5 31L26 8Q28 5.5 30.5 7.5" stroke="white" stroke-width="2.2" stroke-linecap="round"/>
+        <path d="M10 33.5L31 10.5Q33 8 35.5 10" stroke="white" stroke-width="2.2" stroke-linecap="round"/>
+        <line x1="14" y1="13" x2="17" y2="26" stroke="#E8622A" stroke-width="1.6"/>
+        <circle cx="17" cy="26" r="1.8" fill="#E8622A"/>
+      </svg>
+      <div class="sport-emoji">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+          <!-- Two skis with curved tips -->
+          <path d="M5 31L26 8Q28 5.5 30.5 7.5" stroke="white" stroke-width="2.2" stroke-linecap="round" opacity=".9"/>
+          <path d="M10 33.5L31 10.5Q33 8 35.5 10" stroke="white" stroke-width="2.2" stroke-linecap="round" opacity=".9"/>
+          <!-- Poles with baskets -->
+          <line x1="14" y1="13" x2="17" y2="26" stroke="#E8622A" stroke-width="1.6" opacity=".8"/>
+          <line x1="22" y1="15" x2="24.5" y2="27" stroke="#E8622A" stroke-width="1.6" opacity=".8"/>
+          <circle cx="17" cy="26" r="1.8" fill="#E8622A" opacity=".85"/>
+          <circle cx="24.5" cy="27" r="1.8" fill="#E8622A" opacity=".85"/>
+        </svg>
+      </div>
+      <div class="sport-name">Горные лыжи</div>
+      <div class="sport-note">Адреналин и полный контроль скорости</div>
+    </div>
+    <div class="sport-card" data-e="">
+      <svg class="sport-bg-icon" viewBox="0 0 36 36" fill="none">
+        <rect x="14" y="2" width="8" height="32" rx="4" transform="rotate(18 18 18)" fill="white"/>
+        <rect x="15.5" y="9" width="5" height="3" rx="1" transform="rotate(18 18 18)" fill="#E8622A"/>
+        <rect x="15.5" y="23" width="5" height="3" rx="1" transform="rotate(18 18 18)" fill="#E8622A"/>
+      </svg>
+      <div class="sport-emoji">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+          <!-- Snowboard with bindings -->
+          <rect x="14" y="2" width="8" height="32" rx="4" transform="rotate(18 18 18)" fill="white" opacity=".9"/>
+          <line x1="18" y1="5" x2="18" y2="31" transform="rotate(18 18 18)" stroke="#E8622A" stroke-width="1" opacity=".4"/>
+          <rect x="15.5" y="9" width="5" height="3" rx="1" transform="rotate(18 18 18)" fill="#E8622A" opacity=".8"/>
+          <rect x="15.5" y="23" width="5" height="3" rx="1" transform="rotate(18 18 18)" fill="#E8622A" opacity=".8"/>
+        </svg>
+      </div>
+      <div class="sport-name">Сноуборд</div>
+      <div class="sport-note">Баланс между риском и точностью</div>
+    </div>
     <div class="sport-card" data-e="">
       <svg class="sport-bg-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
         <ellipse cx="18" cy="14" rx="10" ry="11" fill="white" opacity=".9"/>
@@ -953,8 +1417,58 @@
       <div class="sport-name">Падел</div>
       <div class="sport-note">Командная игра - как успешный проект</div>
     </div>
-    <div class="sport-card" data-e="🎾"><div class="sport-emoji">🎾</div><div class="sport-name">Теннис</div><div class="sport-note">Дисциплина с первого мяча</div></div>
-    <div class="sport-card" data-e="🏄"><div class="sport-emoji">🏄</div><div class="sport-name">Сёрфинг</div><div class="sport-note">Читать волну = читать рынок</div></div>
+    <div class="sport-card" data-e="">
+      <svg class="sport-bg-icon" viewBox="0 0 36 36" fill="none">
+        <ellipse cx="13.5" cy="11" rx="8.5" ry="10" stroke="white" stroke-width="2.2"/>
+        <path d="M10.8 20.2L12.3 24M16.2 20.2L14.7 24" stroke="white" stroke-width="1.8"/>
+        <rect x="12" y="24" width="3" height="9.5" rx="1.5" fill="white"/>
+        <circle cx="28" cy="26" r="5" fill="#C8F04B"/>
+      </svg>
+      <div class="sport-emoji">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+          <!-- Tennis racket: rim -->
+          <ellipse cx="13.5" cy="11" rx="8.5" ry="10" stroke="white" stroke-width="2.2" opacity=".95"/>
+          <!-- Strings -->
+          <line x1="9.5" y1="2.8" x2="9.5" y2="19.2" stroke="white" stroke-width=".8" opacity=".5"/>
+          <line x1="13.5" y1="1.2" x2="13.5" y2="20.8" stroke="white" stroke-width=".8" opacity=".5"/>
+          <line x1="17.5" y1="2.8" x2="17.5" y2="19.2" stroke="white" stroke-width=".8" opacity=".5"/>
+          <line x1="6" y1="7" x2="21" y2="7" stroke="white" stroke-width=".8" opacity=".5"/>
+          <line x1="5.2" y1="11" x2="21.8" y2="11" stroke="white" stroke-width=".8" opacity=".5"/>
+          <line x1="6" y1="15" x2="21" y2="15" stroke="white" stroke-width=".8" opacity=".5"/>
+          <!-- Throat -->
+          <path d="M10.8 20.2L12.3 24M16.2 20.2L14.7 24" stroke="white" stroke-width="1.8" stroke-linecap="round" opacity=".9"/>
+          <!-- Handle with grip -->
+          <rect x="12" y="24" width="3" height="9.5" rx="1.5" fill="white" opacity=".95"/>
+          <line x1="12" y1="26.5" x2="15" y2="26.5" stroke="#060504" stroke-width=".8" opacity=".35"/>
+          <line x1="12" y1="29" x2="15" y2="29" stroke="#060504" stroke-width=".8" opacity=".35"/>
+          <line x1="12" y1="31.5" x2="15" y2="31.5" stroke="#060504" stroke-width=".8" opacity=".35"/>
+          <!-- Green tennis ball with seams -->
+          <circle cx="28" cy="26" r="5" fill="#C8F04B"/>
+          <path d="M24.4 22.6c1.6 2.2 1.6 4.6 0 6.8" stroke="white" stroke-width="1.1" fill="none" opacity=".85"/>
+          <path d="M31.6 22.6c-1.6 2.2-1.6 4.6 0 6.8" stroke="white" stroke-width="1.1" fill="none" opacity=".85"/>
+          <circle cx="26.3" cy="24.3" r="1" fill="white" opacity=".45"/>
+        </svg>
+      </div>
+      <div class="sport-name">Теннис</div>
+      <div class="sport-note">Дисциплина с первого мяча</div>
+    </div>
+    <div class="sport-card" data-e="">
+      <svg class="sport-bg-icon" viewBox="0 0 36 36" fill="none">
+        <path d="M25 2C16 6 9.5 16 7.5 28c0 0 2 2.2 4.2 2.2C23 26 29 14 29 4c0 0-1.8-2-4-2z" fill="white"/>
+        <path d="M2 32.5c3 0 3-2.5 6-2.5s3 2.5 6 2.5 3-2.5 6-2.5 3 2.5 6 2.5" stroke="#E8622A" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+      <div class="sport-emoji">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+          <!-- Surfboard -->
+          <path d="M25 2C16 6 9.5 16 7.5 28c0 0 2 2.2 4.2 2.2C23 26 29 14 29 4c0 0-1.8-2-4-2z" fill="white" opacity=".9"/>
+          <path d="M25.5 4.5C19 8.5 13 17 11 27" stroke="#E8622A" stroke-width="1.2" opacity=".6"/>
+          <!-- Wave -->
+          <path d="M2 32.5c3 0 3-2.5 6-2.5s3 2.5 6 2.5 3-2.5 6-2.5 3 2.5 6 2.5" stroke="#E8622A" stroke-width="1.8" stroke-linecap="round" opacity=".85"/>
+        </svg>
+      </div>
+      <div class="sport-name">Сёрфинг</div>
+      <div class="sport-note">Читать волну = читать рынок</div>
+    </div>
     <div class="sport-card" data-e="">
       <svg class="sport-bg-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M8 10 Q18 1 28 10 Q23 18 18 20 Q13 18 8 10Z" fill="white"/>
@@ -989,7 +1503,28 @@
       <div class="sport-name">Кайтсёрфинг</div>
       <div class="sport-note">Адаптация к стихии в реальном времени</div>
     </div>
-    <div class="sport-card" data-e="🌐"><div class="sport-emoji">🌐</div><div class="sport-name">Нетворкинг</div><div class="sport-note">МГУ, МГИМО, МФТИ, Сколково - идеи и люди</div></div>
+    <div class="sport-card" data-e="">
+      <svg class="sport-bg-icon" viewBox="0 0 36 36" fill="none">
+        <circle cx="18" cy="18" r="13" stroke="white" stroke-width="1.6"/>
+        <ellipse cx="18" cy="18" rx="6" ry="13" stroke="white" stroke-width="1.6"/>
+        <circle cx="10" cy="9" r="2.2" fill="#E8622A"/>
+        <circle cx="28" cy="13" r="2.2" fill="#E8622A"/>
+        <circle cx="22" cy="29" r="2.2" fill="#E8622A"/>
+      </svg>
+      <div class="sport-emoji">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+          <!-- Globe with network nodes -->
+          <circle cx="18" cy="18" r="13" stroke="white" stroke-width="1.6" opacity=".9"/>
+          <ellipse cx="18" cy="18" rx="6" ry="13" stroke="white" stroke-width="1.6" opacity=".55"/>
+          <path d="M5.5 14h25M5.5 22h25" stroke="white" stroke-width="1.6" opacity=".55"/>
+          <circle cx="10" cy="9" r="2.2" fill="#E8622A" opacity=".9"/>
+          <circle cx="28" cy="13" r="2.2" fill="#E8622A" opacity=".9"/>
+          <circle cx="22" cy="29" r="2.2" fill="#E8622A" opacity=".9"/>
+        </svg>
+      </div>
+      <div class="sport-name">Нетворкинг</div>
+      <div class="sport-note">МГУ, МГИМО, МФТИ, Сколково - идеи и люди</div>
+    </div>
   </div>
 </section>
 
@@ -1001,17 +1536,38 @@
   </div>
   <div class="act-grid">
     <div class="act-card r">
-      <div class="act-icon">🏆</div>
+      <div class="act-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#E8622A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M8 3h8v6a4 4 0 01-8 0V3z"/>
+          <path d="M8 5H4c0 3 1.5 5 4 5M16 5h4c0 3-1.5 5-4 5" opacity=".65"/>
+          <path d="M12 13v3.5M8.5 21h7M9.5 21c0-2 1-3.5 2.5-3.5s2.5 1.5 2.5 3.5"/>
+          <path d="M10.5 5.5l1 1 2-2" opacity=".8"/>
+        </svg>
+      </div>
       <div class="act-name">Teamlead кейс-чемпионатов</div>
       <div class="act-desc">Финалист «Поколения». Ex-teamlead чемпионатов ВШЭ, Сколково, Центрального Университета.</div>
     </div>
     <div class="act-card r">
-      <div class="act-icon">🚀</div>
+      <div class="act-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#E8622A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2c3 2.5 4 6.5 4 9.5L12 15l-4-3.5C8 8.5 9 4.5 12 2z"/>
+          <circle cx="12" cy="8" r="1.5" opacity=".8"/>
+          <path d="M8 11.5L5.5 15.5l3.2-.7M16 11.5l2.5 4-3.2-.7" opacity=".65"/>
+          <path d="M12 15.5c-.9 1.6-.9 3.6 0 5.5.9-1.9.9-3.9 0-5.5z" opacity=".85"/>
+        </svg>
+      </div>
       <div class="act-name">Startup Village & Основатели</div>
       <div class="act-desc">Волонтёр крупнейших предпринимательских форумов России - Сколково и «Основатели».</div>
     </div>
     <div class="act-card r">
-      <div class="act-icon">🤝</div>
+      <div class="act-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#E8622A" stroke-width="1.7" stroke-linecap="round">
+          <circle cx="12" cy="5.5" r="2.5"/>
+          <circle cx="5" cy="17.5" r="2.5"/>
+          <circle cx="19" cy="17.5" r="2.5"/>
+          <path d="M10.7 7.7l-4.4 7.5M13.3 7.7l4.4 7.5M7.5 17.5h9" opacity=".55"/>
+        </svg>
+      </div>
       <div class="act-name">Бизнес-клубы Москвы</div>
       <div class="act-desc">Мероприятия МГУ, МГИМО, МФТИ, Финансового университета. Тёплые контакты с руководителями.</div>
     </div>
@@ -1057,7 +1613,7 @@
   let mx=0,my=0,lx=0,ly=0;
   document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;gsap.set(dot,{x:mx,y:my});});
   (function loop(){lx+=(mx-lx)*.1;ly+=(my-ly)*.1;ring.style.left=lx+'px';ring.style.top=ly+'px';requestAnimationFrame(loop);})();
-  document.querySelectorAll('a,button,.proj-card,.sport-card,.client-card,.tool-card,.pill').forEach(el=>{
+  document.querySelectorAll('a,button,.proj-card,.sport-card,.client-card,.tool-card,.pill,.now-card,.offer-card,.act-card').forEach(el=>{
     el.addEventListener('mouseenter',()=>gsap.to([dot,ring],{scale:2.2,duration:.18}));
     el.addEventListener('mouseleave',()=>gsap.to([dot,ring],{scale:1,duration:.18}));
   });
@@ -1069,9 +1625,8 @@
   const tl=gsap.timeline({delay:.1});
   tl.from('.hero-eyebrow',{y:20,opacity:0,duration:.8,ease:'power3.out'})
     .from('.hero-headline .row span',{yPercent:105,duration:1.1,ease:'power4.out',stagger:.1},'-=.4')
-.from('.hero-side',{x:-20,opacity:0,duration:.7,ease:'power3.out'},'-=.5')
     .from('.hero-foot',{y:20,opacity:0,duration:.7,ease:'power3.out'},'-=.4')
-    .from('.hero-img',{opacity:0,scale:1.06,duration:1.8,ease:'power3.out'},0);
+    .from('.hero-img',{scale:1.05,duration:1.8,ease:'power3.out',clearProps:'all'},0);
 
   // SCROLL REVEALS
   gsap.utils.toArray('.r').forEach(el=>{
@@ -1084,10 +1639,6 @@
     ScrollTrigger.create({trigger:el,start:'top 85%',onEnter:()=>{el.style.width=el.dataset.w;}});
   });
 
-  // DESCRIPTOR cycle
-  const sides=document.querySelectorAll('.hero-side span');
-  let si=0;
-  setInterval(()=>{sides[si].classList.remove('on');si=(si+1)%sides.length;sides[si].classList.add('on');},2000);
 </script>
 </body>
 </html>
