@@ -226,7 +226,7 @@ document.querySelectorAll('.photo-carousel').forEach(gallery => {
  let current=0,paused=motionPreference.matches,visible=false,timer=null;
  const title=gallery.getAttribute('aria-label').split(':')[0];
  function show(index){slides[current].classList.remove('is-active');slides[current].setAttribute('aria-hidden','true');current=(index+slides.length)%slides.length;slides[current].classList.add('is-active');slides[current].setAttribute('aria-hidden','false');count.textContent=(current+1)+' / '+slides.length;}
- function sync(){clearInterval(timer);timer=null;pause.textContent=paused?'Продолжить':'Пауза';pause.setAttribute('aria-label',(paused?'Продолжить':'Приостановить')+' смену фотографий: '+title);if(visible&&!paused&&!document.hidden&&slides.length>1)timer=setInterval(()=>show(current+1),6000);}
+ function sync(){clearInterval(timer);timer=null;pause.textContent=paused?'Продолжить':'Пауза';pause.setAttribute('aria-label',(paused?'Продолжить':'Приостановить')+' смену фотографий: '+title);if(visible&&!paused&&!document.hidden&&slides.length>1)timer=setInterval(()=>show(current+1),2000);}
  pause.addEventListener('click',()=>{paused=!paused;sync()});
  gallery.querySelector('.gallery-prev').addEventListener('click',()=>{paused=true;show(current-1);sync()});
  gallery.querySelector('.gallery-next').addEventListener('click',()=>{paused=true;show(current+1);sync()});
