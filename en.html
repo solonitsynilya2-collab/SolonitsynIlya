@@ -371,21 +371,16 @@ html[lang] header .nav{gap:8px}
 }
 
 
-/* A single animated hero composition; the small header mark stays a home link. */
-@keyframes monogram-float{
-  0%,100%{translate:0 -24px;rotate:-2deg}
-  50%{translate:0 -32px;rotate:3deg}
-}
+/* Overlapping identity; the monogram turns only as the page is scrolled. */
 @media(max-width:950px){
+  .intro-sequence.is-scroll-scene{height:calc(var(--intro-height) + var(--intro-travel))}
+  .intro-sequence.is-scroll-scene .intro-stage{position:sticky;top:8px}
   .intro-identity{isolation:isolate}
   .intro-identity .logo-orbit{z-index:1;height:clamp(190px,27svh,260px)}
   .intro-identity .interactive-logo{
     width:clamp(220px,min(74vw,36svh),340px);
     translate:0 -24px;
-    animation:monogram-float 6s ease-in-out infinite;
-    will-change:translate,rotate;
   }
-  .intro-identity .interactive-logo.is-offscreen{animation-play-state:paused}
   .intro-identity .intro-name{z-index:0;margin-top:clamp(-110px,-23vw,-74px)}
   .intro-identity .interactive-logo img{opacity:1}
   .intro-identity .interactive-logo.spark-active img{filter:brightness(1.12) saturate(1.08)}
@@ -453,10 +448,24 @@ sectionLinks.forEach(link=>{
  link.addEventListener('pointerenter',event=>{if(event.pointerType==='mouse')moveSelection(link)});
 });
 if('ResizeObserver' in window)new ResizeObserver(syncSelection).observe(sectionNav);
-mobileIntro.addEventListener('change',()=>{syncSelection();schedule()});
+mobileIntro.addEventListener('change',()=>{syncSelection();syncIntroScene();schedule()});
 syncSelection();
 
 let queued=false,animation;
+
+const stage=scene.querySelector('.intro-stage');
+let mobileScrollDistance=1;
+function syncIntroScene(){
+ const inset=parseFloat(getComputedStyle(scene).paddingTop)||0;
+ const stageHeight=stage.offsetHeight;
+ // Hold a complete first screen during the turn; tall layouts keep native scrolling.
+ const pin=mobileIntro.matches&&!reduced.matches&&stageHeight<=innerHeight-inset-8+1;
+ mobileScrollDistance=pin?innerHeight*.5:Math.min(innerHeight*.38,280);
+ scene.classList.toggle('is-scroll-scene',pin);
+ scene.style.setProperty('--intro-height',(stageHeight+inset)+'px');
+ scene.style.setProperty('--intro-travel',mobileScrollDistance+'px');
+}
+
 const header=document.querySelector('header');
 let lastScroll=scrollY,scrollDirection=0,travel=0,headerHidden=false;
 function updateHeader(){
@@ -468,9 +477,10 @@ function render(){
  queued=false;
  updateHeader();
  const rect=scene.getBoundingClientRect();
- const p=(reduced.matches||mobileIntro.matches)?0:Math.max(0,Math.min(1,-rect.top/Math.max(1,scene.offsetHeight-innerHeight)));
+ const distance=mobileIntro.matches?mobileScrollDistance:scene.offsetHeight-innerHeight;
+ const p=reduced.matches?0:Math.max(0,Math.min(1,-rect.top/Math.max(1,distance)));
  name.style.transform=mobileIntro.matches?'none':`translateY(${3-p*16}vh) scale(${1-p*.12})`;
- name.style.opacity=String(1-p*.92);
+ name.style.opacity=String(mobileIntro.matches?1:1-p*.92);
  let active=0;
  slides.forEach((slide,index)=>{if(slide.getBoundingClientRect().top<=innerHeight*.35)active=index});
  document.querySelectorAll('header nav a').forEach(link=>{if(link.getAttribute('href')==='#'+slides[active].id)link.setAttribute('aria-current','location');else link.removeAttribute('aria-current')});
@@ -484,16 +494,23 @@ function render(){
  document.body.classList.toggle('past-intro',active!==0);
  document.body.classList.toggle('on-contact',active===slides.length-1);
  document.querySelector('header .socials').inert=active===slides.length-1;
- orbit.style.transform=`translate(${p*24}vw,${-p*12}vh) rotate(${p*115}deg) scale(${1-p*.6})`;
- orbit.style.opacity=String(1-p*.82);
+ orbit.style.transform=mobileIntro.matches
+  ?`perspective(900px) translate3d(${p*14}vw,${-p*8}vh,0) rotateX(${p*20}deg) rotateY(${p*155}deg) rotateZ(${p*18}deg) scale(${1-p*.42})`
+  :`translate(${p*24}vw,${-p*12}vh) rotate(${p*115}deg) scale(${1-p*.6})`;
+ orbit.style.opacity=String(mobileIntro.matches?1-p:1-p*.82);
+ logo.inert=mobileIntro.matches&&p>=.98;
 
 }
 function schedule(){if(!queued){queued=true;requestAnimationFrame(render)}}
-addEventListener('scroll',schedule,{passive:true});addEventListener('resize',schedule);reduced.addEventListener('change',schedule);render();
+function refreshIntro(){syncIntroScene();schedule()}
+addEventListener('scroll',schedule,{passive:true});
+addEventListener('resize',refreshIntro);
+reduced.addEventListener('change',refreshIntro);
+if('ResizeObserver' in window)new ResizeObserver(refreshIntro).observe(stage);
+syncIntroScene();render();
 const sparks=document.createElement('div');
 sparks.className='logo-sparks';sparks.setAttribute('aria-hidden','true');document.body.append(sparks);
 const particles=new Set();
-if('IntersectionObserver' in window)new IntersectionObserver(entries=>{logo.classList.toggle('is-offscreen',!entries[0].isIntersecting)}).observe(logo);
 function burst(target,strong){
  if(reduced.matches||document.hidden)return;
  const r=target.getBoundingClientRect(),x=r.left+r.width*.5,y=r.top+r.height*.52;
