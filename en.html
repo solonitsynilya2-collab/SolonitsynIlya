@@ -494,11 +494,14 @@ function render(){
  document.body.classList.toggle('past-intro',active!==0);
  document.body.classList.toggle('on-contact',active===slides.length-1);
  document.querySelector('header .socials').inert=active===slides.length-1;
- orbit.style.transform=mobileIntro.matches
-  ?`perspective(900px) translate3d(${p*14}vw,${-p*8}vh,0) rotateX(${p*20}deg) rotateY(${p*155}deg) rotateZ(${p*18}deg) scale(${1-p*.42})`
-  :`translate(${p*24}vw,${-p*12}vh) rotate(${p*115}deg) scale(${1-p*.6})`;
- orbit.style.opacity=String(mobileIntro.matches?1-p:1-p*.82);
- logo.inert=mobileIntro.matches&&p>=.98;
+ // One reversible, front-facing arc. Dissolve only near the end of the scroll.
+ const arc=p*p*(3-2*p);
+ const arcX=(mobileIntro.matches?18:24)*(.35*arc+.65*arc*arc);
+ const arcY=-(mobileIntro.matches?14:18)*(1.55*arc-.55*arc*arc);
+ const dissolve=Math.max(0,Math.min(1,(p-.58)/.42));
+ orbit.style.transform=`translate(${arcX}vw,${arcY}vh) rotate(${arc*28}deg) scale(${1-arc*.35})`;
+ orbit.style.opacity=String(1-dissolve*dissolve*(3-2*dissolve));
+ logo.inert=p>=.98;
 
 }
 function schedule(){if(!queued){queued=true;requestAnimationFrame(render)}}
