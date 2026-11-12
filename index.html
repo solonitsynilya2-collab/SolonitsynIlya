@@ -176,7 +176,7 @@ body.past-intro header nav{background:#f5e7dfb8;color:#1f1d1d;border-color:#ffff
 body.on-contact header nav{background:#fff5e820;color:#fff5e8}
 header .social{background:#fff5e82b;border:1px solid #fff5e850;backdrop-filter:blur(16px);color:#fff5e8}
 body.past-intro header .social{background:#f5e7df99;color:#1f1d1d}
-.interactive-logo{position:relative}
+.interactive-logo{position:relative;transform-origin:50% 50%}
 .interactive-logo:after{content:"";position:absolute;inset:0;pointer-events:none;-webkit-mask:url('assets/is-logo-transparent.png') center/contain no-repeat;mask:url('assets/is-logo-transparent.png') center/contain no-repeat;background:linear-gradient(125deg,#fff7e866 0%,#ffffff05 29%,#ffd3ed77 48%,#ffffff08 60%,#fff5e888 100%);background-size:220% 220%;opacity:0;transition:opacity .5s ease;filter:drop-shadow(1px 1px 0 #fff8)}
 .interactive-logo.spark-active:after,.interactive-logo:focus-visible:after{opacity:.85;animation:glass-light 3s ease-in-out infinite alternate}
 @media(hover:hover){.interactive-logo:hover:after{opacity:.85;animation:glass-light 3s ease-in-out infinite alternate}}
@@ -500,6 +500,8 @@ function render(){
  const arcY=-(mobileIntro.matches?14:18)*(1.55*arc-.55*arc*arc);
  const dissolve=Math.max(0,Math.min(1,(p-.58)/.42));
  orbit.style.transform=`translate(${arcX}vw,${arcY}vh) rotate(${arc*28}deg) scale(${1-arc*.35})`;
+ // Clockwise tilt around the monogram's own center, independent of its arc.
+ logo.style.rotate=`${arc*24}deg`;
  orbit.style.opacity=String(1-dissolve*dissolve*(3-2*dissolve));
  logo.inert=p>=.98;
 
